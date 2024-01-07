@@ -1,0 +1,75 @@
+{% extends "widepen/layout.html" %}
+
+{% block body %}
+
+<div class="container mt-4">
+
+        <div class="d-flex justify-content-end mb-3">
+            {% if request.user == user_post.user %}
+            <a href="#" onclick="confirmDelete({{ user_post.id }})" class="btn btn-danger me-2">Delete</a>
+            <a href="{% url 'publish_edit' post_id=user_post.id %}" class="btn btn-primary">Edit</a>
+            {% endif %}
+        </div>
+    
+</div>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl);
+        });
+
+        
+    });
+
+function confirmDelete(postId) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Redirect to the Django delete view if confirmed
+            window.location.href = `{% url 'post_delete' post_id=user_post.id %}`;
+        }
+    });
+}
+</script>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title">{{ user_post.title|safe }}</h3>
+            <div>
+                <button type="button" class="btn btn-link" data-bs-toggle="popover" data-bs-placement="right" data-bs-trigger="hover" title="{{ user_post.user.first_name }} {{ user_post.user.last_name }}" data-bs-content="{{ user_post.user.bio }}">
+                    <a href="{% url 'profile' user_id=user_post.user.id %}">
+                        <img class="post-read-img" src="{{ user_post.user.profile_picture.url }}" alt="Profile Picture"/>
+                    </a>
+                </button>
+                <p>
+                     {% if post_in_bookmark %}
+                        <a href="{% url 'remove_from_bookmark' post_id=user_post.id %}" >
+                            <i class="far fa-bookmark"></i> <!-- Regular bookmark icon -->
+                        </a>
+                    {% else %}
+                            <a href="{% url 'add_to_bookmark' post_id=user_post.id %}" >
+                                <i class="fas fa-bookmark"></i> <!-- Solid bookmark icon -->
+                            </a>
+                    {% endif %}
+
+                    {{ user_post.post_date }}
+                </p>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text text-start">{{ user_post.story|safe }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

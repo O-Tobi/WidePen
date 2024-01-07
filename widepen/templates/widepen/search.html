@@ -1,0 +1,19 @@
+{% extends 'widepen/layout.html' %}
+
+
+{% block body %}
+<h3> Results for: {{search_data}} </h3>
+ {% if search_result %}
+
+    {% for post in search_result %}
+
+     {% include 'widepen/post_card.html' %}
+      
+    {% endfor %}
+
+    {% else %}
+    <p>No results found for your search query.</p>
+
+ {% endif %}
+
+{% endblock %}

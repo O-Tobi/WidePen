@@ -1,0 +1,17 @@
+{% extends 'widepen/layout.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Write your story</h2>
+    <form action="{% url 'publish' %}" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        
+        {{ form.media }}
+        {{ form.as_p }}
+        
+        <button class="btn btn-primary" type="submit">Publish</button>
+        
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+/* Layout */
+.logo-margin{
+  margin-left: 30px;
+}
+
+.nav-search{
+  margin-left: 50px;
+}
+
+
+.container{
+    position: relative;
+}
+
+.top-right-btn{
+  position: absolute;
+  top: 10px;  
+  right: 70px;
+  margin-right: 30px;
+}
+
+.r-side{
+  padding-left: 40px;
+}
+
+
+/* index page*/
+.index-card{
+    align-items:center;
+    margin-left: 50px; 
+}
+
+.card-profile-picture{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.card-img-container{
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.category-line{
+  display: flex;
+  justify-content: center;
+}
+
+.horizontal-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ 
+.nav-link {
+  text-decoration: none;
+  color: #000; /* Change color as needed */
+  padding: 5px 10px; /* Adjust padding for link */
+  border: 1px solid #ccc; /* Optional: Add border for link */
+  border-radius: 5px; /* Optional: Add border radius */
+}
+
+
+
+
+/* post content*/
+.postbody, .postheader {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 30px auto;
+
+}
+
+
+/* post form */
+.title, .story{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 10px auto 10px;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    top: 2px;  
+    right: 10px;
+
+  }
+
+  .profile-dp{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+ 
+  /* Style for the profile container */
+  .profile-container {
+    display: flex;
+    justify-content: right;
+    margin-right: 60px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .profile_post{
+    display: flex;
+    justify-content: left;
+    margin-left: 60px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+
+.post-read-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+

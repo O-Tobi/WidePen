@@ -1,0 +1,16 @@
+{% extends 'widepen/layout.html' %}
+
+{% block body %}
+
+<div class="container">
+  <br><h2>Bookmarks</h2>
+
+    {% for post in user_bookmarks %}
+
+      {% include 'widepen/post_card.html' %}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

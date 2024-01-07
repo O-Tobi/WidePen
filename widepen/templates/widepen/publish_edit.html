@@ -1,0 +1,16 @@
+{% extends 'widepen/layout.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Edit your story</h2>
+    <form action="{% url 'publish_edit' post_id=current_post.id %}" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        
+        <div class="story">{{ form.media }}</div>
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+    
+    </form>
+</div>
+
+{% endblock %}

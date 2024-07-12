@@ -55,3 +55,5 @@ To initiate WidePen locally, follow these straightforward steps:
 4. **Start the development server:** `py manage.py runserver`
 
 Access the WidePen application through your web browser at http://localhost:8000 (or the specified port).
+
+You can watch a demo of this project via: https://www.youtube.com/watch?v=Btvdy6WQOI8
